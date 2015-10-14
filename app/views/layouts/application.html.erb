@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MessegeBoard</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <nav class="navbar">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Message Board</a>
-      </div>
-    </div>
-  </nav>
-  <div class="container">
-    <% if notice %>
-      <div class="alert alert-info">
-        <%= notice %>
-      </div>
-    <% end %>
+  <head>
+    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta charset="utf-8">
+    <title>MessegeBoard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <%= yield %>
-  </div>
-</body>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  
+  <body>
+    <header>
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <ul class="nav navbar-nav">
+              <li><a href="/"><i class="fa fa-file" aria-hidden="true"></i> MessegeBoard</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <div class="container">
+      <% if notice %>
+        <div class="alert alert-success">
+          <%= notice %>
+        </div>
+      <% end %>
+      
+      <%= yield %>
+    </div>
+  </body>
 </html>

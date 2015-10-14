@@ -1,18 +1,41 @@
-<div class="panel panel-default">
+
+<div class="description">
+  <P>メッセージボードです。編集・削除も可能ですのでお気軽に一言どうぞ！</P>
+</div>
+
+<div class="panel panel-info">
   <div class="panel-heading">
     メッセージ一覧
   </div>
-    
+
   <div class="panel-body">
-    <% @messages.each do |message| %>
-      <span class="label label-info"><%= message.name %></span>
-        <%= message.body %>
-        (<%= link_to "編集する" , edit_message_path(message) %>
-         <%= link_to "削除する" , message , method: :delete, data: { confirm: '削除してもよろしいですか？'} %>)
-      <br>
-    <% end %>
+    <div class="alt-table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th class="col-xs-3 col-ms-2 col-md-2 col-lg-2">投稿者</th>
+            <th class="col-xs-6 col-ms-8 col-md-8 col-lg-8">内容</th>
+            <th class="col-xs-3 col-ms-2 col-md-2 col-lg-2">オプション</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @messages.each do |message| %>
+          <tr>
+            <th><span class="label label-info"><%= message.name %></span></th>
+            <td><span class="message-body"><%= message.body %></span></td>
+            <td>
+              <span class="label label-success"><%= link_to "edit" , edit_message_path(message) %></span>
+              <span class="label label-danger"><%= link_to "delete" , message , method: :delete, data: { confirm: '削除してもよろしいですか？'} %></span>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
 <% #部分テンプレートを読み込んでいる %>
 <%= render 'form' %>
+
+

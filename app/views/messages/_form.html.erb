@@ -1,21 +1,38 @@
-<%= form_for(@message) do |f| %>
-  <% if @message.errors.present? %>
-    <div class="alert alert-danger">
-      <%= alert %>
-      <ul>
+<section>
+  <%= form_for(@message) do |f| %>
+    <% if @message.errors.present? %>
+      <div class="alert alert-danger ">
+        <%= alert %>
+        <ul>
         <% @message.errors.full_messages.each do |full_message| %>
-          <li>
-            <%= full_message %>
-          </li>
+          <li><%= full_message %></li>
         <% end %> 
-      </ul>
-    </div>
+        </ul>
+      </div>
   <% end %>
 
-  名前:
-  <%= f.text_field :name %>
+  <div class="form-horizontal" role="form">
+　<!-- 名前 -->
+    <div class="form-group">
+      <div class="col-sm-7 col-md-7">
+        <h4><i class="fa fa-smile-o" aria-hidden="true"></i> 投稿名</h4>
+        <%= f.text_field :name, :class => "form-control", placeholder: "煌木 太郎" %>
+      </div>
+    </div>
+  <!-- 本文 -->
+    <div class="form-group">
+      <div class="col-sm-7 col-md-7">
+        <h4><i class="fa fa-file-text-o" aria-hidden="true"></i> 内容</h4>
+        <%= f.text_area :body, :class => "form-control", :rows => 6, placeholder: "ここに本文を入力してください" %>
+      </div>
+    </div>
+  <!-- ボタン -->
+    <div class="form-group">
+      <div class="col-sm-12">
+        <%= f.submit "投稿する", :class => "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</section>
 
-  内容:
-  <%= f.text_field :body %>
-  <%= f.submit class: "btn btn-sm btn-primary" %>
-<% end %>
+
