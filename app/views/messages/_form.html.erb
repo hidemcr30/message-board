@@ -15,14 +15,21 @@
 　<!-- 名前 -->
     <div class="form-group">
       <div class="col-sm-7 col-md-7">
-        <h4><i class="fa fa-smile-o" aria-hidden="true"></i> 投稿名</h4>
+        <h4><i class="fa fa-smile-o fa-fw" aria-hidden="true"></i> 投稿名</h4>
         <%= f.text_field :name, :class => "form-control", placeholder: "煌木 太郎" %>
+      </div>
+    </div>
+  <!-- 年齢 -->
+      <div class="form-group">
+      <div class="col-sm-7 col-md-7">
+        <h4><i class="fa fa fa-heart fa-fw" aria-hidden="true"></i> 年齢</h4>
+        <%= f.text_field :age, :class => "form-control", placeholder: "21" %>
       </div>
     </div>
   <!-- 本文 -->
     <div class="form-group">
       <div class="col-sm-7 col-md-7">
-        <h4><i class="fa fa-file-text-o" aria-hidden="true"></i> 内容</h4>
+        <h4><i class="fa fa-file-text-o fa-fw" aria-hidden="true"></i> 内容</h4>
         <%= f.text_area :body, :class => "form-control", :rows => 6, placeholder: "ここに本文を入力してください" %>
       </div>
     </div>
